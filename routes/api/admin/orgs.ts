@@ -4,19 +4,23 @@
  */
 
 import { define } from "@/utils.ts";
-import { listOrganizations, getOrgsNeedingLifecycleAction } from "@/lib/db/orgs.ts";
+import { listOrganizations } from "@/lib/db/orgs.ts";
+import type { Organization } from "@/lib/db/orgs.ts";
 
 export const handler = define.handlers({
   async GET(_ctx) {
     try {
-      const [orgs, lifecycle] = await Promise.all([
-        listOrganizations(),
-        getOrgsNeedingLifecycleAction(),
-      ]);
+      const orgs = await listOrganizations();
+      const now = Date.now();
 
       // Calculate stats
       const byStatus: Record<string, number> = {};
       const byPlan: Record<string, number> = {};
+
+      // Categorize alerts
+      const expiredTrials: Organization[] = [];
+      const paymentFailures: Organization[] = [];
+      const frozen: Organization[] = [];
 
       for (const org of orgs) {
         const status = org.subscriptionStatus || "none";
@@ -24,6 +28,21 @@ export const handler = define.handlers({
 
         const plan = org.plan.replace("-trial", "");
         byPlan[plan] = (byPlan[plan] || 0) + 1;
+
+        // Expired trials
+        if (org.subscriptionStatus === "trialing" && org.trialEndsAt && org.trialEndsAt < now) {
+          expiredTrials.push(org);
+        }
+
+        // Payment failures
+        if (org.subscriptionStatus === "past_due" || org.paymentFailedAt) {
+          paymentFailures.push(org);
+        }
+
+        // Frozen accounts
+        if (org.accountStatus === "frozen") {
+          frozen.push(org);
+        }
       }
 
       return new Response(JSON.stringify({
@@ -34,9 +53,9 @@ export const handler = define.handlers({
           byPlan,
         },
         alerts: {
-          expiredTrials: lifecycle.expiredTrials,
-          paymentFailures: lifecycle.paymentFailed,
-          frozen: lifecycle.frozen,
+          expiredTrials,
+          paymentFailures,
+          frozen,
         },
       }), {
         headers: { "Content-Type": "application/json" },
