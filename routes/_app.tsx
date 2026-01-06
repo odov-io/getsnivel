@@ -1,16 +1,27 @@
-import { type PageProps } from "$fresh/server.ts";
-export default function App({ Component }: PageProps) {
+import { define } from "@/utils.ts";
+
+export default define.page(function App({ Component, state }) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>getsnivel-marketing</title>
-        <link rel="stylesheet" href="/styles.css" />
+        <title>{state.title}</title>
+        <meta
+          name="description"
+          content="Simple availability, scheduling and time off tracking for teams."
+        />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body>
+      <body class="min-h-screen bg-white font-sans antialiased">
         <Component />
       </body>
     </html>
   );
-}
+});

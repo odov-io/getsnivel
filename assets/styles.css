@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* Snivel color palette */
+  --color-snivel-yellow: #FCD34D;
+  --color-snivel-navy: #1E3A8A;
+  --color-snivel-lightblue: #7DD3FC;
+  --color-snivel-green: #22C55E;
+  --color-snivel-red: #EF4444;
+  --color-snivel-orange: #F97316;
+
+  /* Primary colors - sleek black/gray */
+  --color-primary: #111827;
+  --color-primary-dark: #000000;
+  --color-primary-content: #ffffff;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInTop {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-slideInTop {
+  animation: slideInTop 0.3s ease-out;
+}
+
+.animate-slideInBottom {
+  animation: slideInBottom 0.3s ease-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
+}

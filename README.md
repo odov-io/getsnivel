@@ -11,6 +11,17 @@ Simple static marketing pages:
 
 ## Local Development
 
+1. Copy `.env.example` to `.env` and configure the app URL:
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` to point to your local app instance:
+```
+APP_URL=http://localhost:8001  # Or whatever port your app runs on
+```
+
+3. Start the dev server:
 ```bash
 deno task start
 ```
@@ -20,11 +31,12 @@ Visit http://localhost:8000
 ## Deploy to Deno Deploy
 
 1. Push this repo to GitHub
-2. In Deno Deploy console: https://dash.deno.com
+2. In Deno Deploy console: https://console.deno.com
 3. Create new project
 4. Link to this GitHub repo
 5. Set entry point: `main.ts`
-6. Add custom domain: `getsnivel.com`
+6. Set environment variable: `APP_URL=https://snivel.app`
+7. Add custom domain: `getsnivel.com`
 
 ## Structure
 
