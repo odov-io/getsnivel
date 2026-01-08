@@ -47,8 +47,8 @@ export default define.page(function Snivel() {
             Snivel
           </h1>
           <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Internal availability, PTO tracking, and team scheduling.
-            See who's available, approve requests, enforce policies.
+            Internal team scheduling and availability management.
+            See who's available, coordinate schedules, and keep your team in sync.
           </p>
           <p class="text-gray-500">
             We're building Snivel to work seamlessly with Book with Snivel.
@@ -85,7 +85,7 @@ export default define.page(function Snivel() {
               </p>
             </div>
 
-            {/* PTO Requests */}
+            {/* Schedule Changes */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,10 +93,10 @@ export default define.page(function Snivel() {
                 </svg>
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                PTO Requests & Approvals
+                Schedule Change Requests
               </h3>
               <p class="text-gray-600">
-                Digital time-off requests with multi-level approval workflows. No more email chains or paper forms. Track balances automatically.
+                Team members request schedule changes with approval workflows. Managers approve, deny, or suggest alternatives. Everyone stays informed.
               </p>
             </div>
 
@@ -115,22 +115,22 @@ export default define.page(function Snivel() {
               </p>
             </div>
 
-            {/* Balance Tracking */}
+            {/* Working Hours */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                Balance Tracking
+                Working Hours & Shifts
               </h3>
               <p class="text-gray-600">
-                Track vacation, sick, personal days. Accrual rules and carryover policies. Employees see their balances in real-time.
+                Define regular working hours, shifts, and schedules. Team members set their availability. Supports flexible and remote work patterns.
               </p>
             </div>
 
-            {/* Blackout Dates */}
+            {/* Busy Periods */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,10 +138,10 @@ export default define.page(function Snivel() {
                 </svg>
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                Blackout Dates
+                Busy Periods & Restrictions
               </h3>
               <p class="text-gray-600">
-                Block off critical periods when time off isn't allowed. Company events, busy seasons, project deadlines.
+                Mark critical periods requiring full staffing. Company events, busy seasons, project deadlines. Limit schedule changes during these times.
               </p>
             </div>
 
@@ -153,10 +153,10 @@ export default define.page(function Snivel() {
                 </svg>
               </div>
               <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                Reports & Analytics
+                Reports & Insights
               </h3>
               <p class="text-gray-600">
-                Track time-off patterns, approval rates, and coverage metrics. Export for payroll or compliance.
+                Understand team availability patterns and scheduling trends. Identify coverage gaps and optimize staffing.
               </p>
             </div>
           </div>
