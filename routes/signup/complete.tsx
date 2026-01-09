@@ -5,25 +5,9 @@
 
 import { define } from "@/utils.ts";
 import { consumeMagicLinkToken } from "@/lib/auth/magic-link.ts";
-import { createOrganization, isSlugAvailable, getOrganizationByEmail, deleteOrganization } from "@/lib/db/orgs.ts";
-import { createUser, listUsersByOrg } from "@/lib/db/users.ts";
+import { checkSlugAvailable, createOrgAndUser, cleanupOrphanedOrg } from "@/lib/signup-api.ts";
 import { createSession, createSessionCookie } from "@/lib/auth/session.ts";
 import Logo from "@/components/Logo.tsx";
-
-/**
- * Clean up orphaned org (created but signup never completed)
- * An org is orphaned if it exists but has no users
- */
-async function cleanupOrphanedOrg(email: string): Promise<void> {
-  const existingOrg = await getOrganizationByEmail(email);
-  if (!existingOrg) return;
-
-  const users = await listUsersByOrg(existingOrg.id);
-  if (users.length === 0) {
-    console.log(`Cleaning up orphaned org ${existingOrg.id} (${existingOrg.slug}) for ${email}`);
-    await deleteOrganization(existingOrg.id);
-  }
-}
 
 export const handler = define.handlers({
   async GET(ctx) {
@@ -87,8 +71,8 @@ export const handler = define.handlers({
     // Clean up any orphaned org from previous incomplete signup attempts
     await cleanupOrphanedOrg(tokenData.email);
 
-    // Check slug availability
-    const slugAvailable = await isSlugAvailable(orgSlug);
+    // Check slug availability via API
+    const slugAvailable = await checkSlugAvailable(orgSlug);
     if (!slugAvailable) {
       const url = new URL(ctx.req.url);
       url.searchParams.set("error", "That URL is already taken");
@@ -96,51 +80,41 @@ export const handler = define.handlers({
       return Response.redirect(url.href, 303);
     }
 
-    try {
-      // Determine plan type from token (solo-trial or team-trial)
-      const planType = tokenData.plan === "team" ? "team-trial" : "solo-trial";
-      console.log(`[signup/complete POST] Creating org with plan: ${planType}`);
+    // Create org and user via API
+    console.log(`[signup/complete POST] Creating org with plan: ${tokenData.plan || "solo"}`);
+    const result = await createOrgAndUser({
+      orgName,
+      orgSlug,
+      email: tokenData.email,
+      userName,
+      plan: tokenData.plan,
+    });
 
-      // Create organization
-      const org = await createOrganization({
-        name: orgName,
-        email: tokenData.email,
-        slug: orgSlug,
-        plan: planType,
-      });
-
-      // Create admin user
-      const user = await createUser({
-        orgId: org.id,
-        email: tokenData.email,
-        name: userName,
-        role: "admin",
-      });
-
-      // Create session
-      const sessionId = await createSession({
-        email: tokenData.email,
-        orgId: org.id,
-        userId: user.id,
-        role: "admin",
-      });
-
-      // Redirect to dashboard with session cookie
-      const dashboardUrl = new URL("/dashboard", ctx.req.url);
-      return new Response(null, {
-        status: 302,
-        headers: {
-          Location: dashboardUrl.href,
-          "Set-Cookie": createSessionCookie(sessionId),
-        },
-      });
-    } catch (error) {
-      console.error("Signup error:", error);
+    if (!result.success) {
+      console.error("Signup error:", result.error);
       const url = new URL(ctx.req.url);
-      url.searchParams.set("error", "Failed to create organization");
+      url.searchParams.set("error", result.error || "Failed to create organization");
       url.searchParams.set("token", token);
       return Response.redirect(url.href, 303);
     }
+
+    // Create local session for getsnivel dashboard
+    const sessionId = await createSession({
+      email: tokenData.email,
+      orgId: result.org.id,
+      userId: result.user.id,
+      role: "admin",
+    });
+
+    // Redirect to dashboard with session cookie
+    const dashboardUrl = new URL("/dashboard", ctx.req.url);
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: dashboardUrl.href,
+        "Set-Cookie": createSessionCookie(sessionId),
+      },
+    });
   },
 });
 

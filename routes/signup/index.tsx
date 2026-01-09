@@ -6,24 +6,8 @@
 import { define } from "@/utils.ts";
 import { createMagicLinkToken } from "@/lib/auth/magic-link.ts";
 import { sendSignupLink } from "@/lib/email/resend.ts";
-import { getOrganizationByEmail, deleteOrganization } from "@/lib/db/orgs.ts";
-import { listUsersByOrg } from "@/lib/db/users.ts";
+import { checkEmailExists, cleanupOrphanedOrg } from "@/lib/signup-api.ts";
 import Logo from "@/components/Logo.tsx";
-
-/**
- * Clean up orphaned org (created but signup never completed)
- * An org is orphaned if it exists but has no users
- */
-async function cleanupOrphanedOrg(email: string): Promise<void> {
-  const existingOrg = await getOrganizationByEmail(email);
-  if (!existingOrg) return;
-
-  const users = await listUsersByOrg(existingOrg.id);
-  if (users.length === 0) {
-    console.log(`[signup] Cleaning up orphaned org ${existingOrg.id} (${existingOrg.slug}) for ${email}`);
-    await deleteOrganization(existingOrg.id);
-  }
-}
 
 export const handler = define.handlers({
   async POST(ctx) {
@@ -43,8 +27,8 @@ export const handler = define.handlers({
     await cleanupOrphanedOrg(email);
 
     // Check if org already exists with this email
-    const existingOrg = await getOrganizationByEmail(email);
-    if (existingOrg) {
+    const emailCheck = await checkEmailExists(email);
+    if (emailCheck.exists) {
       const url = new URL("/login", ctx.req.url);
       url.searchParams.set("email", email);
       url.searchParams.set("message", "An organization with this email already exists. Please log in.");
