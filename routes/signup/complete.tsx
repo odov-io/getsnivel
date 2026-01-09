@@ -106,12 +106,12 @@ export const handler = define.handlers({
       role: "admin",
     });
 
-    // Redirect to dashboard with session cookie
-    const dashboardUrl = new URL("/dashboard", ctx.req.url);
+    // Redirect to org.snivel.app with session cookie
+    const orgUrl = Deno.env.get("ORG_URL") || "https://org.snivel.app";
     return new Response(null, {
       status: 302,
       headers: {
-        Location: dashboardUrl.href,
+        Location: orgUrl,
         "Set-Cookie": createSessionCookie(sessionId),
       },
     });
