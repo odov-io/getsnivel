@@ -1,15 +1,11 @@
 /**
  * POST /api/book/users/[userSlug]/calendar-disconnected
- * Called by snivel-book when user disconnects a calendar
- * If no calendars remain, marks user as not bookable
+ * Proxy to API for marking calendar as disconnected
  */
 
 import { define } from "@/utils.ts";
-import { getUserByGlobalSlug, updateUser } from "@/lib/db/users.ts";
 
-interface CalendarDisconnectedBody {
-  provider: "google" | "microsoft";
-}
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
   async POST(ctx) {
@@ -19,40 +15,23 @@ export const handler = define.handlers({
       return Response.json({ error: "User slug is required" }, { status: 400 });
     }
 
-    // Parse request body
-    let body: CalendarDisconnectedBody;
+    let body;
     try {
       body = await ctx.req.json();
     } catch {
       return Response.json({ error: "Invalid JSON body" }, { status: 400 });
     }
 
-    // Find user by global slug
-    const user = await getUserByGlobalSlug(userSlug);
-
-    if (!user) {
-      return Response.json({ error: "User not found" }, { status: 404 });
-    }
-
-    // Update user's calendar connection status
     try {
-      // Remove provider from array
-      const currentProviders = user.providers || [];
-      const newProviders = currentProviders.filter(p => p !== body.provider);
-      const stillConnected = newProviders.length > 0;
-
-      await updateUser(user.id, {
-        calendarConnected: stillConnected,
-        providers: newProviders,
+      const res = await fetch(`${API_BASE}/book/users/${userSlug}/calendar-disconnected`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
       });
-
-      console.log(`Calendar disconnected for user ${userSlug} (${body.provider}). Remaining: ${newProviders.join(", ") || "none"}`);
-
-      return Response.json({
-        success: true,
-        message: "Calendar disconnected",
-        stillConnected,
-      });
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
     } catch (error) {
       console.error("Failed to update calendar status:", error);
       return Response.json({ error: "Failed to update calendar status" }, { status: 500 });

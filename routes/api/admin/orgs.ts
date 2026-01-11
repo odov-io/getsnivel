@@ -1,71 +1,29 @@
 /**
  * GET /api/admin/orgs
- * List all organizations for admin dashboard
+ * Proxy to API for admin org list
  */
 
 import { define } from "@/utils.ts";
-import { listOrganizations } from "@/lib/db/orgs.ts";
-import type { Organization } from "@/lib/db/orgs.ts";
+
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
-  async GET(_ctx) {
+  async GET(ctx) {
+    const apiKey = ctx.state.adminApiKey;
+
     try {
-      const orgs = await listOrganizations();
-      const now = Date.now();
-
-      // Calculate stats
-      const byStatus: Record<string, number> = {};
-      const byPlan: Record<string, number> = {};
-
-      // Categorize alerts
-      const expiredTrials: Organization[] = [];
-      const paymentFailures: Organization[] = [];
-      const frozen: Organization[] = [];
-
-      for (const org of orgs) {
-        const status = org.subscriptionStatus || "none";
-        byStatus[status] = (byStatus[status] || 0) + 1;
-
-        const plan = org.plan.replace("-trial", "");
-        byPlan[plan] = (byPlan[plan] || 0) + 1;
-
-        // Expired trials
-        if (org.subscriptionStatus === "trialing" && org.trialEndsAt && org.trialEndsAt < now) {
-          expiredTrials.push(org);
-        }
-
-        // Payment failures
-        if (org.subscriptionStatus === "past_due" || org.paymentFailedAt) {
-          paymentFailures.push(org);
-        }
-
-        // Frozen accounts
-        if (org.accountStatus === "frozen") {
-          frozen.push(org);
-        }
-      }
-
-      return new Response(JSON.stringify({
-        orgs,
-        stats: {
-          total: orgs.length,
-          byStatus,
-          byPlan,
+      const res = await fetch(`${API_BASE}/admin/orgs`, {
+        method: "GET",
+        headers: {
+          "x-admin-api-key": apiKey,
         },
-        alerts: {
-          expiredTrials,
-          paymentFailures,
-          frozen,
-        },
-      }), {
-        headers: { "Content-Type": "application/json" },
       });
+
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
     } catch (error) {
       console.error("Error fetching orgs:", error);
-      return new Response(JSON.stringify({ error: "Failed to fetch organizations" }), {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      });
+      return Response.json({ error: "Failed to fetch organizations" }, { status: 500 });
     }
   },
 });

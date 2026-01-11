@@ -1,52 +1,37 @@
 /**
  * POST /api/stripe/portal
- * Create a Stripe Customer Portal session
- *
- * Allows customers to:
- * - Update payment method
- * - View invoice history
- * - Cancel subscription
- * - Update billing info
+ * Proxy to API for Stripe Customer Portal
  */
 
 import { define } from "@/utils.ts";
 import { getSessionFromRequest } from "@/lib/auth/session.ts";
-import { getOrganizationById } from "@/lib/db/orgs.ts";
-import { createPortalSession } from "@/lib/stripe/checkout.ts";
+
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
   async POST(ctx) {
-    // Check auth - must be admin
     const session = await getSessionFromRequest(ctx.req);
     if (!session || session.role !== "admin") {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Get org
-    const org = await getOrganizationById(session.orgId);
-    if (!org) {
-      return Response.json({ error: "Organization not found" }, { status: 404 });
-    }
-
-    // Check if org has a Stripe customer
-    if (!org.stripeCustomerId) {
-      return Response.json(
-        { error: "No billing account. Subscribe first." },
-        { status: 400 }
-      );
-    }
-
     try {
-      console.log("[Portal] Creating session for customer:", org.stripeCustomerId);
-      const portalUrl = await createPortalSession(org.stripeCustomerId);
-      console.log("[Portal] Session created, redirecting to:", portalUrl);
-      return Response.json({ url: portalUrl });
+      const body = await ctx.req.json().catch(() => ({}));
+
+      const res = await fetch(`${API_BASE}/stripe/portal`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${session.token || ""}`,
+        },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
     } catch (error) {
       console.error("[Portal] Failed to create session:", error);
-      return Response.json(
-        { error: "Failed to create billing portal" },
-        { status: 500 }
-      );
+      return Response.json({ error: "Failed to create billing portal" }, { status: 500 });
     }
   },
 });

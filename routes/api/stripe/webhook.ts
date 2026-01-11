@@ -1,78 +1,44 @@
 /**
  * POST /api/stripe/webhook
- * Handle incoming Stripe webhook events
+ * Proxy to API for Stripe webhook handling
  *
- * IMPORTANT: This route does NOT require authentication.
- * Security is provided by Stripe webhook signature verification.
+ * IMPORTANT: This forwards the raw body and signature to the API.
+ * The API handles verification and processing.
  */
 
 import { define } from "@/utils.ts";
-import {
-  verifyWebhookSignature,
-  handleCheckoutCompleted,
-  handleSubscriptionUpdated,
-  handleSubscriptionDeleted,
-  handlePaymentFailed,
-  handleInvoicePaid,
-} from "@/lib/stripe/webhooks.ts";
+
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
   async POST(ctx) {
     // Get the signature header
     const signature = ctx.req.headers.get("stripe-signature");
     if (!signature) {
-      console.error("[Stripe Webhook] Missing stripe-signature header");
+      console.error("[Stripe Webhook Proxy] Missing stripe-signature header");
       return Response.json({ error: "Missing signature" }, { status: 400 });
     }
 
-    // Get raw body for signature verification
+    // Get raw body to forward
     const payload = await ctx.req.text();
 
-    // Verify signature and construct event (async for Deno Deploy)
-    let event;
     try {
-      event = await verifyWebhookSignature(payload, signature);
-    } catch (err) {
-      console.error("[Stripe Webhook] Signature verification failed:", err);
-      return Response.json({ error: "Invalid signature" }, { status: 400 });
-    }
+      // Forward to API with same signature
+      const res = await fetch(`${API_BASE}/stripe/webhook`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain",
+          "stripe-signature": signature,
+        },
+        body: payload,
+      });
 
-    console.log(`[Stripe Webhook] Received event: ${event.type}`);
-
-    // Process the event
-    try {
-      switch (event.type) {
-        case "checkout.session.completed":
-          await handleCheckoutCompleted(event.data.object);
-          break;
-
-        case "customer.subscription.created":
-        case "customer.subscription.updated":
-          await handleSubscriptionUpdated(event.data.object);
-          break;
-
-        case "customer.subscription.deleted":
-          await handleSubscriptionDeleted(event.data.object);
-          break;
-
-        case "invoice.payment_failed":
-          await handlePaymentFailed(event.data.object);
-          break;
-
-        case "invoice.paid":
-          await handleInvoicePaid(event.data.object);
-          break;
-
-        default:
-          console.log(`[Stripe Webhook] Unhandled event type: ${event.type}`);
-      }
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
     } catch (error) {
-      // Log the error but return 200 to acknowledge receipt
-      // Stripe will retry on 4xx/5xx responses
-      console.error(`[Stripe Webhook] Error handling ${event.type}:`, error);
+      console.error("[Stripe Webhook Proxy] Failed to forward:", error);
+      // Return 200 to acknowledge receipt (Stripe retries on errors)
+      return Response.json({ received: true, proxied: false });
     }
-
-    // Always return 200 to acknowledge receipt
-    return Response.json({ received: true });
   },
 });

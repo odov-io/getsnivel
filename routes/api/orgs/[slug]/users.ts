@@ -1,11 +1,11 @@
 /**
  * GET /api/orgs/[slug]/users
- * List bookable users for an organization - used by book.snivel.app
+ * Proxy to API for bookable users in org
  */
 
 import { define } from "@/utils.ts";
-import { getOrganizationBySlug } from "@/lib/db/orgs.ts";
-import { listBookableUsers } from "@/lib/db/users.ts";
+
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
   async GET(ctx) {
@@ -15,33 +15,13 @@ export const handler = define.handlers({
       return Response.json({ error: "Slug is required" }, { status: 400 });
     }
 
-    const org = await getOrganizationBySlug(slug);
-
-    if (!org) {
-      return Response.json({ error: "Organization not found" }, { status: 404 });
+    try {
+      const res = await fetch(`${API_BASE}/book/orgs/${slug}/users`);
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
+    } catch (error) {
+      console.error("Failed to fetch users:", error);
+      return Response.json({ error: "Failed to fetch users" }, { status: 500 });
     }
-
-    // Get bookable users (active + calendar connected)
-    const users = await listBookableUsers(org.id);
-
-    // Return public user info (no sensitive data)
-    return Response.json({
-      orgId: org.id,
-      orgName: org.name,
-      users: users.map((u) => ({
-        id: u.id,
-        slug: u.slug,
-        name: u.name,
-        settings: {
-          timezone: u.settings.timezone,
-          availableDays: u.settings.availableDays,
-          availableHoursStart: u.settings.availableHoursStart,
-          availableHoursEnd: u.settings.availableHoursEnd,
-          meetingDurations: u.settings.meetingDurations,
-          bio: u.settings.bio,
-          avatarUrl: u.settings.avatarUrl,
-        },
-      })),
-    });
   },
 });

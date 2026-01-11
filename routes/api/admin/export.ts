@@ -1,46 +1,30 @@
 /**
  * GET /api/admin/export
- * Export all orgs and users for migration to api.snivel.app
+ * Proxy to API for data export
+ * Note: This may not have an equivalent endpoint in the API
  */
 
 import { define } from "@/utils.ts";
-import { listOrganizations } from "@/lib/db/orgs.ts";
-import { getKv } from "@/lib/db/kv.ts";
-import type { User } from "@/lib/db/users.ts";
+
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
-  async GET(_ctx) {
+  async GET(ctx) {
+    const apiKey = ctx.state.adminApiKey;
+
     try {
-      // Get all orgs
-      const orgs = await listOrganizations();
-
-      // Get all users
-      const kv = await getKv();
-      const users: User[] = [];
-      for await (const entry of kv.list<User>({ prefix: ["users", "by_id"] })) {
-        users.push(entry.value);
-      }
-
-      return new Response(JSON.stringify({
-        exportedAt: new Date().toISOString(),
-        source: "getsnivel",
-        data: {
-          orgs,
-          users,
+      const res = await fetch(`${API_BASE}/admin/export`, {
+        method: "GET",
+        headers: {
+          "x-admin-api-key": apiKey,
         },
-        counts: {
-          orgs: orgs.length,
-          users: users.length,
-        },
-      }), {
-        headers: { "Content-Type": "application/json" },
       });
+
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
     } catch (error) {
       console.error("Export error:", error);
-      return new Response(JSON.stringify({ error: "Export failed" }), {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      });
+      return Response.json({ error: "Export failed" }, { status: 500 });
     }
   },
 });

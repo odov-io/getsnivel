@@ -1,10 +1,11 @@
 /**
  * GET /api/orgs/[slug]
- * Get organization by slug - used by other Snivel apps
+ * Proxy to API for org info
  */
 
 import { define } from "@/utils.ts";
-import { getOrganizationBySlug } from "@/lib/db/orgs.ts";
+
+const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
 
 export const handler = define.handlers({
   async GET(ctx) {
@@ -14,23 +15,14 @@ export const handler = define.handlers({
       return Response.json({ error: "Slug is required" }, { status: 400 });
     }
 
-    const org = await getOrganizationBySlug(slug);
-
-    if (!org) {
-      return Response.json({ error: "Organization not found" }, { status: 404 });
+    try {
+      // Try book endpoint first (public org info for booking)
+      const res = await fetch(`${API_BASE}/book/orgs/${slug}`);
+      const data = await res.json();
+      return Response.json(data, { status: res.status });
+    } catch (error) {
+      console.error("Failed to fetch org:", error);
+      return Response.json({ error: "Failed to fetch org" }, { status: 500 });
     }
-
-    // Return public org info (no sensitive data)
-    return Response.json({
-      id: org.id,
-      slug: org.slug,
-      name: org.name,
-      settings: {
-        timezone: org.settings.timezone,
-        allowPublicBooking: org.settings.allowPublicBooking,
-        brandColor: org.settings.brandColor,
-        logoUrl: org.settings.logoUrl,
-      },
-    });
   },
 });

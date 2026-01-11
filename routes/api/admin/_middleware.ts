@@ -1,6 +1,6 @@
 /**
  * Admin API Middleware
- * Protects admin endpoints with API key authentication
+ * Protects admin endpoints and passes API key to proxy
  */
 
 import { define } from "@/utils.ts";
@@ -26,6 +26,9 @@ export const handler = define.middleware((ctx) => {
       headers: { "Content-Type": "application/json" },
     });
   }
+
+  // Store API key in state for routes to use when proxying
+  ctx.state.adminApiKey = apiKey;
 
   return ctx.next();
 });
