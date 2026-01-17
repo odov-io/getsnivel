@@ -1,9 +1,15 @@
 /**
  * API client for signup operations
  * Calls api.snivel.app for org/user creation
+ *
+ * API URL is resolved per-request via middleware to support timeline deployments.
+ * See lib/env.ts for the resolution logic.
  */
 
-const API_BASE = Deno.env.get("SNIVEL_API_URL") || "https://api.snivel.app/api/v1";
+import { getStaticApiUrl } from "./env.ts";
+
+// Fallback API URL for module-level usage (prefer passing apiUrl explicitly)
+const API_BASE = getStaticApiUrl();
 
 interface CheckEmailResponse {
   exists: boolean;
