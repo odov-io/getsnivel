@@ -209,6 +209,7 @@ export default define.page(function Terms() {
             <div class="flex gap-6">
               <a href="/pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="/terms" class="text-gray-600 hover:text-gray-900">Terms</a>
+              <a href="/privacy" class="text-gray-600 hover:text-gray-900">Privacy</a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">Login</a>
             </div>
           </div>
