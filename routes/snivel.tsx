@@ -38,7 +38,7 @@ export default define.page(function Snivel() {
       </nav>
 
       {/* Hero */}
-      <div class="bg-gradient-to-b from-gray-100 to-white py-20">
+      <div id="main-content" class="bg-gradient-to-b from-gray-100 to-white py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span class="inline-block bg-amber-100 text-amber-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
             Coming Soon
@@ -50,7 +50,7 @@ export default define.page(function Snivel() {
             Internal team scheduling and availability management.
             See who's available, coordinate schedules, and keep your team in sync.
           </p>
-          <p class="text-gray-500">
+          <p class="text-gray-600">
             We're building Snivel to work seamlessly with Book with Snivel.
             Sign up for Book with Snivel today and be first to know when Snivel launches.
           </p>
@@ -73,7 +73,7 @@ export default define.page(function Snivel() {
             {/* Team Calendar */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
@@ -88,7 +88,7 @@ export default define.page(function Snivel() {
             {/* Schedule Changes */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
@@ -103,7 +103,7 @@ export default define.page(function Snivel() {
             {/* Coverage Rules */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -118,7 +118,7 @@ export default define.page(function Snivel() {
             {/* Working Hours */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -133,7 +133,7 @@ export default define.page(function Snivel() {
             {/* Busy Periods */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                 </svg>
               </div>
@@ -148,7 +148,7 @@ export default define.page(function Snivel() {
             {/* Reporting */}
             <div class="border border-gray-200 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
@@ -200,6 +200,9 @@ export default define.page(function Snivel() {
               </a>
               <a href="/privacy" class="text-gray-600 hover:text-gray-900">
                 Privacy
+              </a>
+              <a href="/accessibility" class="text-gray-600 hover:text-gray-900">
+                Accessibility
               </a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">
                 Login

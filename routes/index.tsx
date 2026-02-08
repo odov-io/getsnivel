@@ -38,7 +38,7 @@ export default define.page(function Home() {
       </nav>
 
       {/* Hero Section */}
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <h1 class="text-5xl font-bold text-gray-900 mb-6">
             Scheduling That Works
@@ -64,19 +64,19 @@ export default define.page(function Home() {
             </p>
             <ul class="text-gray-600 mb-8 space-y-2">
               <li class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Google & Microsoft calendar sync
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Custom intake forms & questions
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Approval workflows & booking limits
@@ -110,21 +110,21 @@ export default define.page(function Home() {
               Internal availability, PTO tracking, and team scheduling.
               See who's available, approve requests, enforce policies.
             </p>
-            <ul class="text-gray-500 mb-8 space-y-2">
+            <ul class="text-gray-600 mb-8 space-y-2">
               <li class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Team availability calendar
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 PTO requests & approvals
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Coverage rules & policies
@@ -182,6 +182,9 @@ export default define.page(function Home() {
               </a>
               <a href="/privacy" class="text-gray-600 hover:text-gray-900">
                 Privacy
+              </a>
+              <a href="/accessibility" class="text-gray-600 hover:text-gray-900">
+                Accessibility
               </a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">
                 Login

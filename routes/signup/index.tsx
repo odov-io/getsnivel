@@ -78,7 +78,7 @@ export default define.page(function SignupPage(props) {
           </p>
 
           {error && (
-            <div class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            <div role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
               {error}
             </div>
           )}

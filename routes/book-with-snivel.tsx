@@ -38,7 +38,7 @@ export default define.page(function BookWithSnivel() {
       </nav>
 
       {/* Hero */}
-      <div class="bg-gray-900 py-20">
+      <div id="main-content" class="bg-gray-900 py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span class="inline-block bg-white/10 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-6">
             Available Now
@@ -74,7 +74,7 @@ export default define.page(function BookWithSnivel() {
             {/* Calendar Sync */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               </div>
@@ -84,7 +84,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Real-time two-way sync with Google Calendar and Microsoft 365. Your availability is always accurate.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Google Calendar integration</li>
                 <li>• Microsoft 365 / Outlook</li>
                 <li>• Automatic Google Meet links</li>
@@ -96,7 +96,7 @@ export default define.page(function BookWithSnivel() {
             {/* Custom Intake Forms */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
@@ -106,7 +106,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Collect exactly what you need before the meeting. Standard fields and custom questions.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Text, textarea, select, checkbox</li>
                 <li>• Grouped question sections</li>
                 <li>• Per-duration custom fields</li>
@@ -118,7 +118,7 @@ export default define.page(function BookWithSnivel() {
             {/* Approval Workflows */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -128,7 +128,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Control which bookings need your approval before they're confirmed.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Per-duration approval rules</li>
                 <li>• Auto-approve after X hours</li>
                 <li>• One-click approve/reject</li>
@@ -140,7 +140,7 @@ export default define.page(function BookWithSnivel() {
             {/* Flexible Availability */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -150,7 +150,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Define exactly when you're available for bookings with granular controls.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Available days of week</li>
                 <li>• Start and end hours</li>
                 <li>• Buffer time between meetings</li>
@@ -162,7 +162,7 @@ export default define.page(function BookWithSnivel() {
             {/* Booking Limits */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
@@ -172,7 +172,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Protect your time with daily and weekly booking caps.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Daily booking limit</li>
                 <li>• Weekly booking limit</li>
                 <li>• Automatic enforcement</li>
@@ -183,7 +183,7 @@ export default define.page(function BookWithSnivel() {
             {/* Team Management */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
@@ -193,7 +193,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Manage booking settings for your entire organization from one place.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Org-wide default settings</li>
                 <li>• Per-user overrides</li>
                 <li>• Control which settings users can change</li>
@@ -205,7 +205,7 @@ export default define.page(function BookWithSnivel() {
             {/* Email Notifications */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
@@ -215,7 +215,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Keep everyone informed with automatic email notifications.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Booking confirmations</li>
                 <li>• Reminder emails</li>
                 <li>• Cancellation notices</li>
@@ -227,7 +227,7 @@ export default define.page(function BookWithSnivel() {
             {/* Policies & Disclosures */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
@@ -237,7 +237,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Display important information and require acknowledgment before booking.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Custom policy text</li>
                 <li>• Required acknowledgments</li>
                 <li>• Cancellation policies</li>
@@ -248,7 +248,7 @@ export default define.page(function BookWithSnivel() {
             {/* Meeting Durations */}
             <div class="bg-gray-50 rounded-xl p-8">
               <div class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -258,7 +258,7 @@ export default define.page(function BookWithSnivel() {
               <p class="text-gray-600 mb-4">
                 Offer multiple meeting lengths with unique settings for each.
               </p>
-              <ul class="text-sm text-gray-500 space-y-2">
+              <ul class="text-sm text-gray-600 space-y-2">
                 <li>• Multiple duration options</li>
                 <li>• Per-duration descriptions</li>
                 <li>• Per-duration custom questions</li>
@@ -285,25 +285,25 @@ export default define.page(function BookWithSnivel() {
               </p>
               <ul class="space-y-3 text-gray-600">
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>One line of code to embed</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Auto-resizing iframe for seamless integration</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Popup modal or inline options</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-900 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>JavaScript events for booking completion</span>
@@ -319,7 +319,7 @@ export default define.page(function BookWithSnivel() {
                 <span class="ml-2 text-gray-400">embed.html</span>
               </div>
               <div class="p-6 font-mono text-sm overflow-x-auto">
-                <div class="text-gray-500 mb-4">{`<!-- Simple inline embed -->`}</div>
+                <div class="text-gray-600 mb-4">{`<!-- Simple inline embed -->`}</div>
                 <div>
                   <span class="text-blue-600">&lt;div</span>
                   <span class="text-purple-600"> data-snivel-book</span>
@@ -337,7 +337,7 @@ export default define.page(function BookWithSnivel() {
 
                 <div class="border-t border-gray-200 my-6"></div>
 
-                <div class="text-gray-500 mb-4">{`<!-- Or popup button -->`}</div>
+                <div class="text-gray-600 mb-4">{`<!-- Or popup button -->`}</div>
                 <div>
                   <span class="text-blue-600">&lt;button</span>
                   <span class="text-purple-600"> onclick</span>
@@ -421,6 +421,9 @@ export default define.page(function BookWithSnivel() {
               </a>
               <a href="/privacy" class="text-gray-600 hover:text-gray-900">
                 Privacy
+              </a>
+              <a href="/accessibility" class="text-gray-600 hover:text-gray-900">
+                Accessibility
               </a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">
                 Login

@@ -23,7 +23,7 @@ export default define.page(function CheckEmailPage(props) {
         {/* Check email card */}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
           <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg class="w-8 h-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg aria-hidden="true" class="w-8 h-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
@@ -37,7 +37,7 @@ export default define.page(function CheckEmailPage(props) {
             Click the link to sign in.
           </p>
 
-          <p class="text-sm text-gray-500">
+          <p class="text-sm text-gray-600">
             Didn't receive the email? Check your spam folder or{" "}
             <a href="/login" class="text-gray-900 font-medium hover:underline">
               try again

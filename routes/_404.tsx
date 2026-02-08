@@ -22,7 +22,7 @@ export default define.page(function Error404Page() {
           {/* 404 illustration */}
           <div class="mb-6">
             <div class="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
-              <span class="text-3xl font-bold text-gray-400">404</span>
+              <span class="text-3xl font-bold text-gray-500">404</span>
             </div>
           </div>
 
@@ -52,7 +52,7 @@ export default define.page(function Error404Page() {
         </div>
 
         {/* Footer */}
-        <p class="mt-6 text-sm text-gray-500">
+        <p class="mt-6 text-sm text-gray-600">
           Need help? Contact us at{" "}
           <a href="mailto:support@odov.io" class="text-gray-700 hover:underline">
             support@odov.io

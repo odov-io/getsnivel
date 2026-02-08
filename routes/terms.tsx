@@ -35,14 +35,14 @@ export default define.page(function Terms() {
       </nav>
 
       {/* Content */}
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="mb-6">
           <span class="inline-block bg-gray-900 text-white text-sm font-medium px-4 py-1.5 rounded-full">
             Snivel Platform
           </span>
         </div>
         <h1 class="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-        <p class="text-gray-500 mb-12">Last updated: February 2026</p>
+        <p class="text-gray-600 mb-12">Last updated: February 2026</p>
 
         <div class="prose prose-gray max-w-none">
           {/* Introduction */}
@@ -473,6 +473,7 @@ export default define.page(function Terms() {
               <a href="/pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="/terms" class="text-gray-600 hover:text-gray-900">Terms</a>
               <a href="/privacy" class="text-gray-600 hover:text-gray-900">Privacy</a>
+              <a href="/accessibility" class="text-gray-600 hover:text-gray-900">Accessibility</a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">Login</a>
             </div>
           </div>

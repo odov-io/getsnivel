@@ -48,7 +48,7 @@ export default define.page(function Pricing({ url }) {
         <div class="bg-blue-50 border-b border-blue-200">
           <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center justify-center gap-2 text-blue-800">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
               <span class="font-medium">{upgradeMessage}</span>
@@ -58,7 +58,7 @@ export default define.page(function Pricing({ url }) {
       )}
 
       {/* Header */}
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="main-content" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="text-center mb-12">
           <h1 class="text-4xl font-bold text-gray-900 mb-4">
             {showUpgradePrompt ? "Upgrade Your Plan" : "Simple, Predictable Pricing"}
@@ -91,13 +91,13 @@ export default define.page(function Pricing({ url }) {
           {/* Solo Plan */}
           <div class="rounded-2xl border-2 border-gray-200 p-8 bg-white flex flex-col">
             <h2 class="text-2xl font-bold text-gray-900 mb-2">Solo</h2>
-            <p class="text-gray-500 mb-6">For individuals</p>
+            <p class="text-gray-600 mb-6">For individuals</p>
 
             <div class="mb-2">
               <span class="text-4xl font-bold text-gray-900" id="solo-price">$6</span>
-              <span class="text-gray-500">/month</span>
+              <span class="text-gray-600">/month</span>
             </div>
-            <p class="text-sm text-gray-500 mb-6" id="solo-annual-note">
+            <p class="text-sm text-gray-600 mb-6" id="solo-annual-note">
               $72/yr billed monthly
             </p>
 
@@ -107,7 +107,7 @@ export default define.page(function Pricing({ url }) {
             >
               Start Free Trial
             </a>
-            <p class="text-xs text-gray-500 text-center mt-2 mb-6">
+            <p class="text-xs text-gray-600 text-center mt-2 mb-6">
               30 days free
             </p>
 
@@ -199,7 +199,7 @@ export default define.page(function Pricing({ url }) {
                   value="0"
                   class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider-thumb"
                 />
-                <div class="flex justify-between text-xs text-gray-500 mt-2 px-[10px]">
+                <div class="flex justify-between text-xs text-gray-600 mt-2 px-[10px]">
                   <span class="w-0 text-center">5</span>
                   <span class="w-0 text-center">10</span>
                   <span class="w-0 text-center">25</span>
@@ -234,6 +234,7 @@ export default define.page(function Pricing({ url }) {
               <a href="/pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="/terms" class="text-gray-600 hover:text-gray-900">Terms</a>
               <a href="/privacy" class="text-gray-600 hover:text-gray-900">Privacy</a>
+              <a href="/accessibility" class="text-gray-600 hover:text-gray-900">Accessibility</a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">Login</a>
             </div>
           </div>

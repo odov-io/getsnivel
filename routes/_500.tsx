@@ -38,7 +38,7 @@ export default define.page(function Error500Page({ error }) {
           {/* Oops illustration */}
           <div class="mb-6">
             <div class="w-20 h-20 mx-auto bg-red-100 rounded-full flex items-center justify-center">
-              <svg class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
             </div>
@@ -70,7 +70,7 @@ export default define.page(function Error500Page({ error }) {
 
           {/* Error details (collapsed) */}
           <details class="mt-6 text-left">
-            <summary class="text-sm text-gray-500 cursor-pointer hover:text-gray-700">
+            <summary class="text-sm text-gray-600 cursor-pointer hover:text-gray-700">
               Technical details
             </summary>
             <div class="mt-2 p-3 bg-gray-50 rounded text-xs text-gray-600 font-mono overflow-auto max-h-32">
@@ -81,7 +81,7 @@ export default define.page(function Error500Page({ error }) {
         </div>
 
         {/* Footer */}
-        <p class="mt-6 text-sm text-gray-500">
+        <p class="mt-6 text-sm text-gray-600">
           Need help? Contact us at{" "}
           <a href="mailto:support@odov.io" class="text-gray-700 hover:underline">
             support@odov.io

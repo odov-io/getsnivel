@@ -70,7 +70,7 @@ export default define.page(function LoginPage(props) {
   const defaultEmail = url.searchParams.get("email") || "";
 
   return (
-    <div class="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <div id="main-content" class="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div class="w-full max-w-md">
         {/* Logo */}
         <div class="text-center mb-8">
@@ -87,7 +87,7 @@ export default define.page(function LoginPage(props) {
           </h1>
 
           {error && (
-            <div class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            <div role="alert" class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
               {error}
             </div>
           )}
@@ -125,7 +125,7 @@ export default define.page(function LoginPage(props) {
             </button>
           </form>
 
-          <p class="text-sm text-gray-500 mt-4 text-center">
+          <p class="text-sm text-gray-600 mt-4 text-center">
             We'll send you a magic link to sign in.
           </p>
         </div>
