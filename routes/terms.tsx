@@ -51,8 +51,7 @@ export default define.page(function Terms() {
               These Terms of Service ("Terms") govern your use of the Snivel platform, including{" "}
               <strong>Book with Snivel</strong> (scheduling and booking), <strong>Sigs by Snivel</strong>{" "}
               (email signature management), and related services (collectively, the "Services"),
-              operated by ODOV LLC, a North Carolina limited liability company, doing business as
-              SNIVEL ("we," "us," or "our"). By creating an account or using our Services,
+              operated by ODOV LLC, a North Carolina limited liability company ("we," "us," or "our"). By creating an account or using our Services,
               you agree to these Terms. If you do not agree, do not use the Services.
             </p>
           </section>
@@ -349,7 +348,7 @@ export default define.page(function Terms() {
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">19. Indemnification</h2>
             <h3 class="text-lg font-semibold text-gray-900 mt-4 mb-2">Your Indemnification</h3>
             <p class="text-gray-600 mb-3">
-              You agree to indemnify and hold harmless ODOV LLC (d/b/a SNIVEL) and its officers, members, employees, and agents
+              You agree to indemnify and hold harmless ODOV LLC and its officers, members, employees, and agents
               from any claims, damages, losses, liabilities, and expenses (including reasonable attorney's fees)
               arising from: (a) your violation of these Terms, (b) your violation of any third-party rights, or
               (c) content you upload or transmit through the Services.
@@ -442,7 +441,7 @@ export default define.page(function Terms() {
             <ul class="list-disc pl-6 text-gray-600 space-y-2">
               <li><strong>Entire agreement:</strong> These Terms, together with the{" "}
                 <a href="/privacy" class="text-blue-600 hover:text-blue-800">Privacy Policy</a>,
-                constitute the entire agreement between you and ODOV LLC (d/b/a SNIVEL) regarding the Services and supersede
+                constitute the entire agreement between you and ODOV LLC regarding the Services and supersede
                 all prior or contemporaneous agreements, representations, warranties, and understandings,
                 whether oral or written.</li>
               <li><strong>Severability:</strong> If any provision of these Terms is held to be unenforceable or invalid, that provision shall be modified to the minimum extent necessary to make it enforceable, or if modification is not possible, severed from these Terms. All remaining provisions shall continue in full force and effect.</li>

@@ -49,8 +49,8 @@ export default define.page(function Privacy() {
           {/* Introduction */}
           <section class="mb-10">
             <p class="text-gray-600 leading-relaxed">
-              This Privacy Policy describes how ODOV LLC, a North Carolina limited liability company,
-              doing business as SNIVEL ("we," "us," or "our"), collects, uses, stores, and protects
+              This Privacy Policy describes how ODOV LLC, a North Carolina limited liability company
+              ("we," "us," or "our"), collects, uses, stores, and protects
               your information when you use the Snivel platform, including <strong>Book with Snivel</strong> (scheduling and booking),{" "}
               <strong>Sigs by Snivel</strong> (email signature management), and related services
               (collectively, the "Services"). By using our Services, you agree to the collection and use of
