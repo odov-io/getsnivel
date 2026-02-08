@@ -229,10 +229,11 @@ export default define.page(function Pricing({ url }) {
       <footer class="border-t border-gray-200 py-8 mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center">
-            <span class="text-gray-600">2025 SNIVEL. All rights reserved.</span>
+            <span class="text-gray-600">2026 SNIVEL. All rights reserved.</span>
             <div class="flex gap-6">
               <a href="/pricing" class="text-gray-600 hover:text-gray-900">Pricing</a>
               <a href="/terms" class="text-gray-600 hover:text-gray-900">Terms</a>
+              <a href="/privacy" class="text-gray-600 hover:text-gray-900">Privacy</a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">Login</a>
             </div>
           </div>

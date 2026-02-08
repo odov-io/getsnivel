@@ -419,6 +419,9 @@ export default define.page(function BookWithSnivel() {
               <a href="/terms" class="text-gray-600 hover:text-gray-900">
                 Terms
               </a>
+              <a href="/privacy" class="text-gray-600 hover:text-gray-900">
+                Privacy
+              </a>
               <a href="/login" class="text-gray-600 hover:text-gray-900">
                 Login
               </a>
