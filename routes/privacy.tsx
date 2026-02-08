@@ -413,36 +413,101 @@ export default define.page(function Privacy() {
 
           {/* GDPR */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">10. GDPR Compliance (European Economic Area)</h2>
-            <p class="text-gray-600 mb-3">If you are located in the EEA, you have additional rights under the General Data Protection Regulation:</p>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">10. GDPR Compliance (EEA and UK)</h2>
+            <p class="text-gray-600 mb-3">
+              If you are located in the European Economic Area (EEA) or the United Kingdom (UK), you have
+              rights under the General Data Protection Regulation (EU GDPR) and the UK GDPR respectively.
+              ODOV LLC acts as the data controller for the personal data processed through our Services.
+            </p>
+
+            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Lawful Basis for Processing</h3>
+            <p class="text-gray-600 mb-3">We process your personal data under the following lawful bases:</p>
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-gray-600 text-sm">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="text-left py-2 pr-4 font-semibold text-gray-900">Processing Activity</th>
+                    <th class="text-left py-2 font-semibold text-gray-900">Lawful Basis</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                  <tr><td class="py-2 pr-4">Account creation and management</td><td class="py-2">Contractual necessity (Art. 6(1)(b))</td></tr>
+                  <tr><td class="py-2 pr-4">Processing bookings</td><td class="py-2">Contractual necessity (Art. 6(1)(b))</td></tr>
+                  <tr><td class="py-2 pr-4">Calendar integration (OAuth)</td><td class="py-2">Consent (Art. 6(1)(a))</td></tr>
+                  <tr><td class="py-2 pr-4">Email signature deployment (OAuth)</td><td class="py-2">Consent (Art. 6(1)(a))</td></tr>
+                  <tr><td class="py-2 pr-4">Payment processing</td><td class="py-2">Contractual necessity (Art. 6(1)(b))</td></tr>
+                  <tr><td class="py-2 pr-4">Transactional emails</td><td class="py-2">Contractual necessity (Art. 6(1)(b))</td></tr>
+                  <tr><td class="py-2 pr-4">Security and rate limiting</td><td class="py-2">Legitimate interest (Art. 6(1)(f))</td></tr>
+                  <tr><td class="py-2 pr-4">Payment record retention (7 years)</td><td class="py-2">Legal obligation (Art. 6(1)(c))</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Your Rights</h3>
             <ul class="list-disc pl-6 text-gray-600 space-y-2">
-              <li><strong>Lawful basis:</strong> We process your data based on (a) your consent (for OAuth connections), (b) performance of our contract with you (providing the Services), and (c) our legitimate interests (security and fraud prevention).</li>
-              <li><strong>Data portability:</strong> You can request your data in a structured, commonly used, machine-readable format.</li>
-              <li><strong>Right to erasure:</strong> You can request complete deletion of your data ("right to be forgotten").</li>
-              <li><strong>Supervisory authority:</strong> You have the right to lodge a complaint with your local data protection authority.</li>
+              <li><strong>Data portability:</strong> You can request your data in a structured, commonly used, machine-readable format (Art. 20).</li>
+              <li><strong>Right to erasure:</strong> You can request complete deletion of your data ("right to be forgotten") (Art. 17).</li>
+              <li><strong>Right to restrict processing:</strong> You can request limitation of processing under certain conditions (Art. 18).</li>
+              <li><strong>Right to object:</strong> You can object to processing based on legitimate interests (Art. 21).</li>
+              <li><strong>Supervisory authority:</strong> You have the right to lodge a complaint with your local data protection authority. In the UK, this is the Information Commissioner's Office (ICO).</li>
               <li><strong>Withdrawal of consent:</strong> Where processing is based on consent, you may withdraw consent at any time without affecting the lawfulness of processing carried out before withdrawal.</li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Data Protection Practices</h3>
+            <ul class="list-disc pl-6 text-gray-600 space-y-2">
+              <li><strong>Data protection by design:</strong> We implement privacy by design principles, including data minimization, purpose limitation, and collecting only the data necessary for our Services.</li>
+              <li><strong>Data protection impact assessments:</strong> We conduct DPIAs where processing is likely to result in a high risk to the rights and freedoms of data subjects.</li>
+              <li><strong>Sub-processor oversight:</strong> We maintain Data Processing Agreements with all sub-processors and monitor their compliance.</li>
+              <li><strong>Data protection contact:</strong> For GDPR-related inquiries, contact{" "}
+                <a href="mailto:privacy@snivel.com" class="text-blue-600 hover:text-blue-800">privacy@snivel.com</a>.
+                We will respond to data subject requests within 30 days, extendable by 60 days for complex requests with notice.</li>
             </ul>
           </section>
 
-          {/* CCPA */}
+          {/* CCPA / CPRA */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">11. CCPA Compliance (California Residents)</h2>
-            <p class="text-gray-600 mb-3">If you are a California resident, you have additional rights under the California Consumer Privacy Act:</p>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">11. CCPA / CPRA Compliance (California Residents)</h2>
+            <p class="text-gray-600 mb-3">
+              If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA)
+              and the California Privacy Rights Act (CPRA):
+            </p>
             <ul class="list-disc pl-6 text-gray-600 space-y-2">
               <li><strong>Right to know:</strong> You may request that we disclose what personal information we collect, use, and share.</li>
               <li><strong>Right to delete:</strong> You may request deletion of your personal information.</li>
               <li><strong>Right to correct:</strong> You may request correction of inaccurate personal information we hold about you.</li>
-              <li><strong>Right to opt-out:</strong> You have the right to opt out of the "sale" of personal information. <strong>We do not sell personal information.</strong></li>
+              <li><strong>Right to opt-out of sale/sharing:</strong> You have the right to opt out of the "sale" or "sharing" of personal information. <strong>We do not sell or share personal information</strong> as defined by the CCPA/CPRA.</li>
               <li><strong>Right to limit sensitive personal information:</strong> You may direct us to limit our use of sensitive personal information to what is necessary to provide the Services. We do not collect sensitive personal information as defined under the CPRA beyond what is necessary to operate the Services.</li>
               <li><strong>Non-discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
             </ul>
-            <p class="text-gray-600 mt-3">
-              <strong>Categories of information collected:</strong> Identifiers (name, email), commercial information
-              (subscription data), internet activity (log data), and professional information (job title, company for signatures).
+
+            <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">Categories of Personal Information</h3>
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-gray-600 text-sm">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="text-left py-2 pr-4 font-semibold text-gray-900">Category</th>
+                    <th class="text-left py-2 pr-4 font-semibold text-gray-900">Examples</th>
+                    <th class="text-left py-2 font-semibold text-gray-900">Business Purpose</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                  <tr><td class="py-2 pr-4">Identifiers</td><td class="py-2 pr-4">Name, email address</td><td class="py-2">Account creation, authentication</td></tr>
+                  <tr><td class="py-2 pr-4">Commercial information</td><td class="py-2 pr-4">Subscription plan, billing status</td><td class="py-2">Service delivery, billing</td></tr>
+                  <tr><td class="py-2 pr-4">Internet activity</td><td class="py-2 pr-4">IP address, request logs</td><td class="py-2">Security, rate limiting</td></tr>
+                  <tr><td class="py-2 pr-4">Professional information</td><td class="py-2 pr-4">Job title, company, department</td><td class="py-2">Email signature generation</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="text-gray-600 mt-4">
+              <strong>We do not sell personal information.</strong> We do not share personal information with third parties
+              for their own marketing or advertising purposes. We do not use personal information for cross-context
+              behavioral advertising.
             </p>
             <p class="text-gray-600 mt-2">
-              <strong>We do not sell personal information.</strong> We do not share personal information with third parties
-              for their own marketing purposes.
+              <strong>Service providers:</strong> We share personal information with service providers (Stripe, Resend,
+              Deno Deploy) solely for the business purposes described in this policy. Our service provider contracts
+              restrict them from using your data for any purpose other than providing services to us.
             </p>
             <p class="text-gray-600 mt-2">
               We will acknowledge your request within 10 business days and provide a substantive response
