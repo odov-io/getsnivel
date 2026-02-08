@@ -193,6 +193,8 @@ export default define.page(function Terms() {
               <li>Use email signature deployment to distribute misleading, fraudulent, or illegal content.</li>
               <li>Circumvent rate limits, usage quotas, or other service restrictions.</li>
               <li>Resell, sublicense, or redistribute the Services without our written consent.</li>
+              <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Services.</li>
+              <li>Access the Services for the purpose of building a competitive product or service, or for benchmarking.</li>
             </ul>
             <p class="text-gray-600 mt-3">
               We reserve the right to suspend or terminate accounts that violate these terms, with or without notice.
@@ -303,9 +305,22 @@ export default define.page(function Terms() {
             </ul>
           </section>
 
+          {/* Disclaimer of Warranties */}
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">16. Disclaimer of Warranties</h2>
+            <p class="text-gray-600 leading-relaxed font-semibold uppercase text-sm">
+              THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND,
+              EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF
+              MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ANY WARRANTIES
+              ARISING OUT OF COURSE OF DEALING OR USAGE OF TRADE. WE DO NOT WARRANT THAT THE
+              SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES OR OTHER
+              HARMFUL COMPONENTS.
+            </p>
+          </section>
+
           {/* Service Availability */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">16. Service Availability</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">17. Service Availability</h2>
             <p class="text-gray-600 leading-relaxed">
               We strive to maintain high availability of the Services but do not guarantee uninterrupted access.
               The Services may be temporarily unavailable due to maintenance, updates, or circumstances beyond
@@ -316,45 +331,63 @@ export default define.page(function Terms() {
 
           {/* Limitation of Liability */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">17. Limitation of Liability</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">18. Limitation of Liability</h2>
             <p class="text-gray-600 mb-3">
               To the maximum extent permitted by law:
             </p>
             <ul class="list-disc pl-6 text-gray-600 space-y-2">
-              <li>The Services are provided "as is" and "as available" without warranties of any kind, express or implied.</li>
-              <li>We do not warrant that the Services will be error-free, secure, or uninterrupted.</li>
-              <li>We are not liable for any indirect, incidental, special, consequential, or punitive damages.</li>
-              <li>Our total liability to you for any claims arising from or related to these Terms or the Services shall not exceed the amount you paid us in the 12 months preceding the claim.</li>
+              <li>Neither party is liable to the other for any indirect, incidental, special, consequential, or punitive damages, regardless of the cause of action or theory of liability.</li>
+              <li>Each party's total aggregate liability to the other for any claims arising from or related to these Terms or the Services shall not exceed the amount paid by you to us in the 12 months preceding the claim.</li>
+              <li>The foregoing limitations shall not apply to (a) either party's indemnification obligations, (b) either party's infringement of the other party's intellectual property rights, (c) liability arising from a party's gross negligence or willful misconduct, or (d) liability that cannot be limited by applicable law.</li>
               <li>We are not liable for missed bookings, failed signature deployments, or calendar synchronization errors.</li>
             </ul>
           </section>
 
           {/* Indemnification */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">18. Indemnification</h2>
-            <p class="text-gray-600 leading-relaxed">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">19. Indemnification</h2>
+            <h3 class="text-lg font-semibold text-gray-900 mt-4 mb-2">Your Indemnification</h3>
+            <p class="text-gray-600 mb-3">
               You agree to indemnify and hold harmless SNIVEL and its officers, directors, employees, and agents
               from any claims, damages, losses, liabilities, and expenses (including reasonable attorney's fees)
-              arising from: (a) your use of the Services, (b) your violation of these Terms, (c) your violation
-              of any third-party rights, or (d) content you upload or transmit through the Services.
+              arising from: (a) your violation of these Terms, (b) your violation of any third-party rights, or
+              (c) content you upload or transmit through the Services.
+            </p>
+            <h3 class="text-lg font-semibold text-gray-900 mt-4 mb-2">Our Indemnification</h3>
+            <p class="text-gray-600 mb-3">
+              We will indemnify and hold harmless you from any third-party claims that the Services, as provided
+              by us, infringe any third-party intellectual property right, provided that this obligation does not
+              apply to claims arising from: (a) your modification of the Services, (b) your combination of the
+              Services with non-Snivel products or services, or (c) your continued use of the Services after
+              being notified of the alleged infringement.
+            </p>
+            <h3 class="text-lg font-semibold text-gray-900 mt-4 mb-2">Indemnification Procedure</h3>
+            <p class="text-gray-600">
+              The indemnified party shall: (i) provide prompt written notice of the claim, (ii) grant the
+              indemnifying party sole control of the defense and settlement, and (iii) provide reasonable
+              cooperation at the indemnifying party's expense.
             </p>
           </section>
 
           {/* Termination */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">19. Termination</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">20. Termination</h2>
             <ul class="list-disc pl-6 text-gray-600 space-y-2">
               <li>You may terminate your account at any time by cancelling your subscription and requesting account deletion.</li>
-              <li>We may suspend or terminate your account if you violate these Terms, with notice where practicable.</li>
+              <li>We may suspend or terminate your account if you violate these Terms, with at least 5 business days' written notice, except where immediate suspension is reasonably necessary to prevent harm to other users, our systems, or third parties.</li>
+              <li>We may terminate your subscription for convenience upon 30 days' prior written notice, in which case we will refund any prepaid fees for the unused portion of the then-current subscription term.</li>
               <li>Upon termination, your right to use the Services ceases immediately.</li>
+              <li>Upon termination or cancellation, you may request a data export within the 90-day retention period by contacting{" "}
+                <a href="mailto:support@snivel.com" class="text-blue-600 hover:text-blue-800">support@snivel.com</a>.
+                We will provide your data in a standard machine-readable format (e.g., JSON or CSV) within 15 business days.</li>
               <li>Data retention after termination is governed by Section 15 of these Terms.</li>
-              <li>Sections that by their nature should survive termination will survive, including intellectual property, limitation of liability, indemnification, and dispute resolution.</li>
+              <li>Sections that by their nature should survive termination will survive, including intellectual property, limitation of liability, indemnification, dispute resolution, and general provisions.</li>
             </ul>
           </section>
 
           {/* Dispute Resolution */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">20. Dispute Resolution</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">21. Dispute Resolution</h2>
             <p class="text-gray-600 mb-3">
               Any disputes arising from or relating to these Terms or the Services will be resolved as follows:
             </p>
@@ -362,14 +395,38 @@ export default define.page(function Terms() {
               <li><strong>Informal resolution:</strong> We encourage you to contact us first at{" "}
                 <a href="mailto:support@snivel.com" class="text-blue-600 hover:text-blue-800">support@snivel.com</a>{" "}
                 to attempt to resolve the dispute informally.</li>
-              <li><strong>Governing law:</strong> These Terms are governed by the laws of the United States.</li>
-              <li><strong>Jurisdiction:</strong> Any legal proceedings will be conducted in the courts of competent jurisdiction.</li>
+              <li><strong>Governing law:</strong> These Terms are governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of laws provisions.</li>
+              <li><strong>Jurisdiction:</strong> Any legal proceedings shall be brought exclusively in the state or federal courts located in Wilmington, Delaware, and each party irrevocably consents to such jurisdiction and venue.</li>
             </ul>
+          </section>
+
+          {/* Force Majeure */}
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">22. Force Majeure</h2>
+            <p class="text-gray-600 leading-relaxed">
+              Neither party shall be liable for any delay or failure in performance resulting from causes beyond
+              its reasonable control, including but not limited to acts of God, natural disasters, pandemic, war,
+              terrorism, government actions, infrastructure or utility failures, Internet disruptions, or
+              third-party service outages (including outages of cloud hosting providers, payment processors, or
+              calendar API providers). The affected party shall provide prompt notice and use commercially
+              reasonable efforts to resume performance.
+            </p>
+          </section>
+
+          {/* Export Compliance */}
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">23. Export Compliance</h2>
+            <p class="text-gray-600 leading-relaxed">
+              The Services may be subject to U.S. export control and sanctions laws. You may not use the Services
+              if you are located in, or a national of, a country subject to U.S. embargo, or if you are on any
+              U.S. government restricted party list. You agree to comply with all applicable export control and
+              sanctions laws.
+            </p>
           </section>
 
           {/* Changes to Terms */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">21. Changes to Terms</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">24. Changes to Terms</h2>
             <p class="text-gray-600 leading-relaxed">
               We may update these Terms from time to time. We will notify you of any material changes by email
               or by posting a notice on our website. Your continued use of the Services after changes take effect
@@ -378,9 +435,27 @@ export default define.page(function Terms() {
             </p>
           </section>
 
+          {/* General Provisions */}
+          <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">25. General Provisions</h2>
+            <ul class="list-disc pl-6 text-gray-600 space-y-2">
+              <li><strong>Entire agreement:</strong> These Terms, together with the{" "}
+                <a href="/privacy" class="text-blue-600 hover:text-blue-800">Privacy Policy</a>,
+                constitute the entire agreement between you and SNIVEL regarding the Services and supersede
+                all prior or contemporaneous agreements, representations, warranties, and understandings,
+                whether oral or written.</li>
+              <li><strong>Severability:</strong> If any provision of these Terms is held to be unenforceable or invalid, that provision shall be modified to the minimum extent necessary to make it enforceable, or if modification is not possible, severed from these Terms. All remaining provisions shall continue in full force and effect.</li>
+              <li><strong>Waiver:</strong> No failure or delay by either party in exercising any right under these Terms shall constitute a waiver of that right. A waiver of any provision shall not be deemed a waiver of any other provision.</li>
+              <li><strong>Assignment:</strong> You may not assign or transfer these Terms without our prior written consent. We may assign these Terms in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of our assets, provided the assignee agrees to be bound by these Terms.</li>
+              <li><strong>No third-party beneficiaries:</strong> These Terms do not create any third-party beneficiary rights in any individual or entity that is not a party to these Terms.</li>
+              <li><strong>Notices:</strong> We may send notices to the email address associated with your account. You may send notices to{" "}
+                <a href="mailto:support@snivel.com" class="text-blue-600 hover:text-blue-800">support@snivel.com</a>.</li>
+            </ul>
+          </section>
+
           {/* Contact */}
           <section class="mb-10">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">22. Contact Us</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">26. Contact Us</h2>
             <p class="text-gray-600 leading-relaxed">
               If you have questions about these Terms or your account, please contact us at{" "}
               <a href="mailto:support@snivel.com" class="text-blue-600 hover:text-blue-800">support@snivel.com</a>.

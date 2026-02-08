@@ -207,6 +207,7 @@ export default define.page(function Privacy() {
               <li>We do <strong>not</strong> use Google user data to determine creditworthiness or for lending purposes.</li>
               <li>We do <strong>not</strong> use Google user data for training artificial intelligence or machine learning models.</li>
               <li>We do <strong>not</strong> allow humans to read Google user data except: (a) with the user's affirmative agreement to view specific data, (b) for security purposes such as investigating abuse, (c) to comply with applicable law, or (d) when the data is aggregated and used for internal operations.</li>
+              <li>All Snivel employees, agents, contractors, and any successors or acquirers of Snivel are required to comply with these Limited Use restrictions.</li>
             </ul>
 
             <h3 class="text-lg font-semibold text-gray-900 mt-6 mb-3">3.4 Revoking Google Access</h3>
@@ -322,6 +323,11 @@ export default define.page(function Privacy() {
                 </p>
               </div>
             </div>
+            <p class="text-gray-600 mt-4">
+              We maintain Data Processing Agreements with each of our service providers that comply
+              with applicable data protection requirements, ensuring your data is protected throughout
+              the processing chain.
+            </p>
           </section>
 
           {/* Data Security */}
@@ -335,6 +341,7 @@ export default define.page(function Privacy() {
               <li><strong>Rate limiting:</strong> Authentication endpoints are rate-limited by IP address to prevent brute-force attacks.</li>
               <li><strong>Minimal access:</strong> Employee access to user data is restricted to what is necessary for support and operations.</li>
               <li><strong>Token management:</strong> OAuth tokens are automatically refreshed and old tokens are invalidated. Authentication tokens (magic links, email codes) expire after 10 minutes.</li>
+              <li><strong>Breach response:</strong> In the event of a data breach affecting your personal information, we will notify affected users and relevant supervisory authorities as required by applicable law, including within 72 hours where required by the GDPR.</li>
             </ul>
           </section>
 
@@ -423,7 +430,9 @@ export default define.page(function Privacy() {
             <ul class="list-disc pl-6 text-gray-600 space-y-2">
               <li><strong>Right to know:</strong> You may request that we disclose what personal information we collect, use, and share.</li>
               <li><strong>Right to delete:</strong> You may request deletion of your personal information.</li>
+              <li><strong>Right to correct:</strong> You may request correction of inaccurate personal information we hold about you.</li>
               <li><strong>Right to opt-out:</strong> You have the right to opt out of the "sale" of personal information. <strong>We do not sell personal information.</strong></li>
+              <li><strong>Right to limit sensitive personal information:</strong> You may direct us to limit our use of sensitive personal information to what is necessary to provide the Services. We do not collect sensitive personal information as defined under the CPRA beyond what is necessary to operate the Services.</li>
               <li><strong>Non-discrimination:</strong> We will not discriminate against you for exercising your privacy rights.</li>
             </ul>
             <p class="text-gray-600 mt-3">
@@ -433,6 +442,10 @@ export default define.page(function Privacy() {
             <p class="text-gray-600 mt-2">
               <strong>We do not sell personal information.</strong> We do not share personal information with third parties
               for their own marketing purposes.
+            </p>
+            <p class="text-gray-600 mt-2">
+              We will acknowledge your request within 10 business days and provide a substantive response
+              within 45 calendar days of receiving a verifiable consumer request.
             </p>
           </section>
 
@@ -464,9 +477,11 @@ export default define.page(function Privacy() {
               Our Services are hosted on Deno Deploy, which may process data in multiple regions. If you are
               accessing our Services from outside the United States, please be aware that your information may
               be transferred to, stored, and processed in the United States or other countries where our
-              infrastructure is located. By using our Services, you consent to this transfer. We ensure appropriate
-              safeguards are in place for international data transfers in compliance with applicable data
-              protection laws.
+              infrastructure is located. By using our Services, you consent to this transfer. We ensure
+              appropriate safeguards are in place for international data transfers, including the use of
+              Standard Contractual Clauses (SCCs) approved by the European Commission and compliance with
+              the EU-US Data Privacy Framework where applicable. Our service providers are contractually
+              required to maintain equivalent data protection standards.
             </p>
           </section>
 
