@@ -6,7 +6,7 @@ export default define.page(function App({ Component, state }) {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{state.title}</title>
+        <title>{state.title || "Getsnivel"}</title>
         <meta
           name="description"
           content="Simple availability, scheduling and time off tracking for teams."
